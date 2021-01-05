@@ -1,8 +1,8 @@
 <resources>
 
-    <string name="app_name">ESP Provisioning</string>
-    <string name="app_name_ble">ESP BLE Prov</string>
-    <string name="app_name_softap">ESP SoftAP Prov</string>
+    <string name="app_name">Tetrad Connect</string>
+    <string name="app_name_ble">Tetrad Connect</string>
+    <string name="app_name_softap">Tetrad Connect</string>
 
     <!-- Screen Titles -->
     <string name="title_activity_connect_device">Connect to Device</string>
@@ -98,7 +98,7 @@
     <string name="devices_title">Devices</string>
     <string name="enter_device_key">Enter Your Proof Of Possession PIN</string>
     <string name="app_version">App Version</string>
-    <string name="powered_by_esp">Powered by ESPRESSIF</string>
+    <string name="powered_by_esp">Powered by Tetrad</string>
 
     <string name="join_other_network">Join Other Network</string>
     <string name="networks">Networks</string>

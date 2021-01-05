@@ -30,20 +30,21 @@ android {
             resValue "string", "proof_of_possesion", "abcd1234"
             resValue "string", "wifi_base_url", "192.168.4.1:80"
             resValue "string", "wifi_device_name_prefix", "PROV_"
-            resValue "string", "ble_device_name_prefix", "PROV_"
-            buildConfigField "boolean", "isQrCodeSupported", "true"
-            buildConfigField "boolean", "isSettingsAllowed", "true"
+            resValue "string", "ble_device_name_prefix", "AIRU_"
+            buildConfigField "boolean", "isQrCodeSupported", "false"
+            buildConfigField "boolean", "isSettingsAllowed", "false"
             buildConfigField "boolean", "isFilteringByPrefixAllowed", "true"
         }
 
         debug {
             debuggable true
             resValue "string", "proof_of_possesion", "abcd1234"
+            resValue "string", "proof_of_possesion", "abcd1234"
             resValue "string", "wifi_base_url", "192.168.4.1:80"
             resValue "string", "wifi_device_name_prefix", "PROV_"
-            resValue "string", "ble_device_name_prefix", "PROV_"
-            buildConfigField "boolean", "isQrCodeSupported", "true"
-            buildConfigField "boolean", "isSettingsAllowed", "true"
+            resValue "string", "ble_device_name_prefix", "AIRU_"
+            buildConfigField "boolean", "isQrCodeSupported", "false"
+            buildConfigField "boolean", "isSettingsAllowed", "false"
             buildConfigField "boolean", "isFilteringByPrefixAllowed", "true"
         }
     }
