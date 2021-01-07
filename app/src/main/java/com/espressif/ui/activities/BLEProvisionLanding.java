@@ -224,7 +224,8 @@ public class BLEProvisionLanding extends AppCompatActivity {
 
                 if (deviceCaps != null && !deviceCaps.contains("no_pop") && securityType == 1) {
 
-                    goToPopActivity();
+//                    goToPopActivity();
+                    doPopAndGoToWiFiActivity();
 
                 } else if (deviceCaps.contains("wifi_scan")) {
 
@@ -553,20 +554,18 @@ public class BLEProvisionLanding extends AppCompatActivity {
         startActivity(popIntent);
     }
 
-//    private void doPopAndGoToWiFiActivity() {
-//
-//        final String pop = etPop.getText().toString();
-//        Log.d(TAG, "POP : " + pop);
-//        provisionManager.getEspDevice().setProofOfPossession(pop);
-//        ArrayList<String> deviceCaps = provisionManager.getEspDevice().getDeviceCapabilities();
-//
-//        finish();
-//        if (deviceCaps.contains("wifi_scan")) {
-//            goToWifiScanListActivity();
-//        } else {
-//            goToWiFiConfigActivity();
-//        }
-//    }
+    private void doPopAndGoToWiFiActivity() {
+
+        final String pop = getResources().getString(R.string.proof_of_possesion);
+        Log.d(TAG, "POP : " + pop);
+        provisionManager.getEspDevice().setProofOfPossession(pop);
+        ArrayList<String> deviceCaps = provisionManager.getEspDevice().getDeviceCapabilities();
+        if (deviceCaps.contains("wifi_scan")) {
+            goToWifiScanListActivity();
+        } else {
+            goToWiFiConfigActivity();
+        }
+    }
 
     private void goToWifiScanListActivity() {
 
