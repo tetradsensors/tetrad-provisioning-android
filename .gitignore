@@ -93,3 +93,7 @@ local.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# build.gradle because it hides secret info - Ask for it if you need it
+app/build.gradle
+

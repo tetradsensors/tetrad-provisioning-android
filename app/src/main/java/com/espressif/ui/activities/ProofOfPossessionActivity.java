@@ -63,7 +63,7 @@ public class ProofOfPossessionActivity extends AppCompatActivity {
         deviceName = provisionManager.getEspDevice().getDeviceName();
 
         if (!TextUtils.isEmpty(deviceName)) {
-            String popText = getString(R.string.pop_instruction) + " " + deviceName;
+            String popText = getString(R.string.pop_instruction) + " " + deviceName + getString(R.string.pop_instruction2);
             tvPopInstruction.setText(popText);
         }
 

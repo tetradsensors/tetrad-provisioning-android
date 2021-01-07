@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.net.Uri;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,6 +50,9 @@ public class ProvisionActivity extends AppCompatActivity {
 
     private CardView btnOk;
     private TextView txtOkBtn;
+
+    private CardView btnReg;
+    private TextView txtRegBtn;
 
     private String ssidValue, passphraseValue = "";
     private ESPProvisionManager provisionManager;
@@ -93,7 +97,8 @@ public class ProvisionActivity extends AppCompatActivity {
 
             case ESPConstants.EVENT_DEVICE_DISCONNECTED:
                 if (!isFinishing() && !isProvisioningCompleted) {
-                    showAlertForDeviceDisconnected();
+
+//                    showAlertForDeviceDisconnected();
                 }
                 break;
         }
@@ -105,6 +110,15 @@ public class ProvisionActivity extends AppCompatActivity {
         public void onClick(View v) {
             provisionManager.getEspDevice().disconnectDevice();
             finish();
+        }
+    };
+
+    private View.OnClickListener regBtnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String deviceID = provisionManager.getEspDevice().getDeviceName();
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.tetradsensors.com/index.php/app_registration/?deviceID=" + deviceID));
+            startActivity(browserIntent);
         }
     };
 
@@ -135,8 +149,15 @@ public class ProvisionActivity extends AppCompatActivity {
         txtOkBtn = findViewById(R.id.text_btn);
         btnOk.findViewById(R.id.iv_arrow).setVisibility(View.GONE);
 
+        btnReg = findViewById(R.id.btn_reg);
+        txtRegBtn = findViewById(R.id.text_btn_reg);
+        btnReg.findViewById(R.id.iv_arrow).setVisibility(View.GONE);
+
         txtOkBtn.setText(R.string.btn_ok);
+        txtRegBtn.setText(R.string.btn_reg);
+
         btnOk.setOnClickListener(okBtnClickListener);
+        btnReg.setOnClickListener(regBtnClickListener);
     }
 
     private void doProvisioning() {
@@ -159,7 +180,7 @@ public class ProvisionActivity extends AppCompatActivity {
                         tvErrAtStep1.setVisibility(View.VISIBLE);
                         tvErrAtStep1.setText(R.string.error_session_creation);
                         tvProvError.setVisibility(View.VISIBLE);
-                        hideLoading();
+                        hideLoadingTryAgain();
                     }
                 });
             }
@@ -193,7 +214,7 @@ public class ProvisionActivity extends AppCompatActivity {
                         tvErrAtStep1.setVisibility(View.VISIBLE);
                         tvErrAtStep1.setText(R.string.error_prov_step_1);
                         tvProvError.setVisibility(View.VISIBLE);
-                        hideLoading();
+                        hideLoadingTryAgain();
                     }
                 });
             }
@@ -227,7 +248,7 @@ public class ProvisionActivity extends AppCompatActivity {
                         tvErrAtStep2.setVisibility(View.VISIBLE);
                         tvErrAtStep2.setText(R.string.error_prov_step_2);
                         tvProvError.setVisibility(View.VISIBLE);
-                        hideLoading();
+                        hideLoadingTryAgain();
                     }
                 });
             }
@@ -256,7 +277,7 @@ public class ProvisionActivity extends AppCompatActivity {
                         progress3.setVisibility(View.GONE);
                         tvErrAtStep3.setVisibility(View.VISIBLE);
                         tvProvError.setVisibility(View.VISIBLE);
-                        hideLoading();
+                        hideLoadingTryAgain();
                     }
                 });
             }
@@ -273,6 +294,7 @@ public class ProvisionActivity extends AppCompatActivity {
                         tick3.setVisibility(View.VISIBLE);
                         progress3.setVisibility(View.GONE);
                         hideLoading();
+                        hideLoadingReg();
                     }
                 });
             }
@@ -290,7 +312,7 @@ public class ProvisionActivity extends AppCompatActivity {
                         tvErrAtStep3.setVisibility(View.VISIBLE);
                         tvErrAtStep3.setText(R.string.error_prov_step_3);
                         tvProvError.setVisibility(View.VISIBLE);
-                        hideLoading();
+                        hideLoadingTryAgain();
                     }
                 });
             }
@@ -301,12 +323,31 @@ public class ProvisionActivity extends AppCompatActivity {
 
         btnOk.setEnabled(false);
         btnOk.setAlpha(0.5f);
+        btnOk.setVisibility(View.INVISIBLE);
+
+        btnReg.setEnabled(false);
+        btnReg.setAlpha(0.5f);
+        btnReg.setVisibility(View.INVISIBLE);
     }
 
     public void hideLoading() {
 
         btnOk.setEnabled(true);
         btnOk.setAlpha(1f);
+        btnOk.setVisibility(View.VISIBLE);
+    }
+
+    public void hideLoadingTryAgain() {
+        btnOk.setEnabled(true);
+        btnOk.setAlpha(1f);
+        btnOk.setVisibility(View.VISIBLE);
+        txtOkBtn.setText("Try Again");
+    }
+
+    public void hideLoadingReg() {
+        btnReg.setEnabled(true);
+        btnReg.setAlpha(1f);
+        btnReg.setVisibility(View.VISIBLE);
     }
 
     private void showAlertForDeviceDisconnected() {

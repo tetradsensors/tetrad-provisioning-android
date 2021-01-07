@@ -232,6 +232,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_prov_error" />
 
+            <include
+                android:id="@+id/btn_reg"
+                layout="@layout/button_reg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_ok" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>

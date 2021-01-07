@@ -14,7 +14,8 @@
     <string name="title_activity_add_device">Add Device</string>
 
     <!-- Button Text -->
-    <string name="btn_ok">OK</string>
+    <string name="btn_ok">Provision Another Device</string>
+    <string name="btn_reg">Register Your Device</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_next">Next</string>
     <string name="btn_back">Back</string>
@@ -38,8 +39,9 @@
 
     <!-- Instruction Strings -->
     <string name="pop_instruction">Enter your proof of possession PIN for</string>
+    <string name="pop_instruction2">. Please use default value of \"abcd1234\".</string>
     <string name="setup_instructions">To complete setup of your device %1$s, please provide your Home Network\'s credentials.</string>
-    <string name="connect_device_instruction_general">To provision your device, make sure it is turned ON. Connect your mobile phone to the Wi-Fi network with a name like PROV_XXXXXX</string>
+    <string name="connect_device_instruction_general">To provision your device, make sure it is turned ON. Connect your mobile phone to the Wi-Fi network with a name like AIRU_XXXXXX</string>
     <string name="connect_device_instruction_specific">To provision your device, make sure it is turned ON. Connect your mobile phone to the Wi-Fi network with the name</string>
 
     <!-- Provisioning Steps Strings -->
@@ -89,7 +91,7 @@
     <string name="error_device_connect_failed">Error! Failed to connect with device.</string>
     <string name="error_ssid_empty">Network name cannot be empty</string>
     <string name="error_password_empty">Password cannot be empty</string>
-    <string name="error_provisioning">Reset your board to factory defaults and retry</string>
+    <string name="error_provisioning">An error has occured. Please try again.</string>
     <string name="error_wifi_off">Please turn on Wi-Fi to connect with device.</string>
 
     <string name="prefix">Prefix :</string>

@@ -86,12 +86,16 @@ public class EspMainActivity extends AppCompatActivity {
 
         deviceType = sharedPreferences.getString(AppConstants.KEY_DEVICE_TYPES, AppConstants.DEVICE_TYPE_DEFAULT);
         if (deviceType.equals(AppConstants.DEVICE_TYPE_BLE)) {
-            ivEsp.setImageResource(R.drawable.ic_esp_ble);
+//            ivEsp.setImageResource(R.drawable.ic_esp_ble);
+            ivEsp.setImageResource(R.mipmap.ic_tetrad);
         } else if (deviceType.equals(AppConstants.DEVICE_TYPE_SOFTAP)) {
-            ivEsp.setImageResource(R.drawable.ic_esp_softap);
+//            ivEsp.setImageResource(R.drawable.ic_esp_softap);
+            ivEsp.setImageResource(R.mipmap.ic_tetrad);
         } else {
-            ivEsp.setImageResource(R.drawable.ic_esp);
+//            ivEsp.setImageResource(R.drawable.ic_esp);
+            ivEsp.setImageResource(R.mipmap.ic_tetrad);
         }
+
     }
 
     @Override
