@@ -27,7 +27,7 @@ android {
             minifyEnabled false
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            resValue "string", "proof_of_possesion", "abcd1234"
+            resValue "string", "proof_of_possesion", "neb3q5ik"
             resValue "string", "wifi_base_url", "192.168.4.1:80"
             resValue "string", "wifi_device_name_prefix", "PROV_"
             resValue "string", "ble_device_name_prefix", "AIRU_"
@@ -38,8 +38,8 @@ android {
 
         debug {
             debuggable true
-            resValue "string", "proof_of_possesion", "abcd1234"
-            resValue "string", "proof_of_possesion", "abcd1234"
+            resValue "string", "proof_of_possesion", "neb3q5ik"
+            resValue "string", "proof_of_possesion", "neb3q5ik"
             resValue "string", "wifi_base_url", "192.168.4.1:80"
             resValue "string", "wifi_device_name_prefix", "PROV_"
             resValue "string", "ble_device_name_prefix", "AIRU_"
